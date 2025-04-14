@@ -172,10 +172,13 @@ export async function fetchLLMCompletion(
       azureOpenAIApiDeploymentName: modelParams.model,
       azureOpenAIApiVersion: "2025-02-01-preview",
       temperature: modelParams.temperature,
-      maxTokens: modelParams.max_tokens,
-      topP: modelParams.top_p,
+      maxTokens: undefined,
+      topP: undefined,
       callbacks: finalCallbacks,
       maxRetries,
+      modelKwargs: {
+        max_completion_tokens: modelParams.max_tokens,
+      },
     });
   } else if (modelParams.adapter === LLMAdapter.Bedrock) {
     const { region } = BedrockConfigSchema.parse(config);
