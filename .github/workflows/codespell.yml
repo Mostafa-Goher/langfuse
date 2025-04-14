@@ -18,7 +18,7 @@ permissions:
 jobs:
   codespell:
     name: Check for spelling errors
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout

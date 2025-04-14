@@ -31,7 +31,7 @@ concurrency:
 name: Deploy to ECS
 jobs:
   affected-services:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     outputs:
       services: ${{ steps.affected-services.outputs.result }}
     steps:
@@ -61,7 +61,7 @@ jobs:
             console.log('Services', `${process.env.services}` ?? 'n/a');
 
   affected-environments:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     outputs:
       environments: ${{ steps.affected-environments.outputs.result }}
     steps:
