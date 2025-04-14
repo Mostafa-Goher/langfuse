@@ -8,7 +8,7 @@ on:
 
 jobs:
   rebase-dependabot:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     environment: "protected branches"
     steps:
       - name: "Rebase open Dependabot PR"
