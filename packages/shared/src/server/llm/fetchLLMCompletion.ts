@@ -193,9 +193,6 @@ export async function fetchLLMCompletion(
               topP: modelParams.top_p,
               callbacks: finalCallbacks,
               maxRetries,
-              modelKwargs: {
-                  max_completion_tokens: modelParams.max_tokens,
-              },
           });
       }
   } else if (modelParams.adapter === LLMAdapter.Bedrock) {
