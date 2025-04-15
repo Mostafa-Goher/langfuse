@@ -51,7 +51,7 @@ export const VersionLabel = ({ className }: { className?: string }) => {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="xs" className={cn("text-xs",className)}>
           {VERSION}
-          {!isLangfuseCloud && (isEeVersion ? " EE" : " OSS")}
+          {!isLangfuseCloud && (isEeVersion ? " EE" : " MOSTAFA")}
           {hasUpdate && <ArrowUp className={`ml-1 h-3 w-3 ${color}`} />}
         </Button>
       </DropdownMenuTrigger>
