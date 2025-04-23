@@ -4,21 +4,15 @@ import {
   type ExperimentMetadata,
   QueueJobs,
   QueueName,
-  redis,
   ZodModelConfig,
   ExperimentCreateQueue,
 } from "@langfuse/shared/src/server";
-import { env } from "@/src/env.mjs";
 import {
   createTRPCRouter,
   protectedProjectProcedure,
 } from "@/src/server/api/trpc";
 import { PromptType } from "@/src/features/prompts/server/utils/validation";
-import {
-  type DatasetItem,
-  extractVariables,
-  UnauthorizedError,
-} from "@langfuse/shared";
+import { type DatasetItem, extractVariables } from "@langfuse/shared";
 import { throwIfNoEntitlement } from "@/src/features/entitlements/server/hasEntitlement";
 import { throwIfNoProjectAccess } from "@/src/features/rbac/utils/checkProjectAccess";
 
@@ -171,9 +165,9 @@ export const experimentsRouter = createTRPCRouter({
         scope: "experiments:CUD",
       });
 
-      if (!redis || !env.NEXT_PUBLIC_LANGFUSE_CLOUD_REGION) {
+      /* if (!redis || !env.NEXT_PUBLIC_LANGFUSE_CLOUD_REGION) {
         throw new UnauthorizedError("Experiment creation failed");
-      }
+      }*/
 
       const metadata: ExperimentMetadata = {
         prompt_id: input.promptId,
